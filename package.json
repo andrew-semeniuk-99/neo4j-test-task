@@ -1,0 +1,41 @@
+{
+  "name": "neo4j-test-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon --loader esm-module-alias/loader --no-warnings ./src/index.js",
+    "start": "cross-env NODE_ENV=production node --loader esm-module-alias/loader --no-warnings ./src/index.js",
+    "lint": "eslint ./src/**/*.js --fix",
+    "format": "prettier --write ./**/*.{js,json}",
+    "swagger": "node swagger.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2",
+    "cross-env": "^7",
+    "dotenv": "^16",
+    "esm-module-alias": "^2",
+    "express": "^4",
+    "neo4j-driver": "^5.24.1",
+    "swagger-ui-express": "^5"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-prettier": "^9",
+    "eslint-config-standard": "^17",
+    "eslint-plugin-import": "^2",
+    "eslint-plugin-n": "^16",
+    "eslint-plugin-prettier": "^5",
+    "eslint-plugin-promise": "^6",
+    "nodemon": "^3",
+    "prettier": "^3",
+    "swagger-autogen": "^2"
+  },
+  "type": "module",
+  "aliases": {
+    "@": "./src"
+  }
+}

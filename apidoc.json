@@ -1,0 +1,105 @@
+{
+  "swagger": "2.0",
+  "host": "localhost:3030/api",
+  "info": {
+    "title": "Test Task API Doc",
+    "description": "Test Task API Doc",
+    "version": "1.0.0"
+  },
+  "schemes": ["http"],
+  "paths": {
+    "/users/shortest-way": {
+      "get": {
+        "description": "Show possible shortest way between two users (direction ignored)",
+        "parameters": [
+          {
+            "name": "leftUser",
+            "in": "query",
+            "default": "bob",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rightUser",
+            "in": "query",
+            "default": "dave",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/users/by-followers-count": {
+      "get": {
+        "description": "Show user list with necessary minimal amount of followers",
+        "parameters": [
+          {
+            "name": "minFollowers",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "default": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/users/{username}/followers": {
+      "get": {
+        "description": "Show user followers list by username",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "username",
+            "default": "carol",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/users/{username}/suggest-friends": {
+      "get": {
+        "description": "Show possible friends by username",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "default": "bob",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    }
+  }
+}

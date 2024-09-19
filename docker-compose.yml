@@ -1,0 +1,33 @@
+version: '3'
+services:
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j
+    ports:
+      - "7474:7474"
+      - "7687:${NEO4J_PORT}"
+    environment:
+      NEO4J_AUTH: "${NEO4J_AUTH_USER}/${NEO4J_AUTH_PASS}"
+      NEO4J_PLUGINS: '["apoc","apoc-extended"]'
+    volumes:
+      - ./scripts:/var/lib/neo4j/db_init/
+      - ./conf:/var/lib/neo4j/conf
+    networks:
+      - app-network
+
+  express_app:
+    container_name: express
+    build: .
+    ports:
+      - "${EXPRESS_PORT}:${EXPRESS_PORT}"
+    env_file:
+      - .env
+    networks:
+      - app-network
+    depends_on:
+        - neo4j
+
+
+networks:
+  app-network:
+    driver: bridge

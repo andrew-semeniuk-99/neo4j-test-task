@@ -1,0 +1,17 @@
+node_modules
+coverage
+
+.idea
+.git
+.gitignore
+
+.env
+
+.prettierrc.json
+.eslintrc.json
+jest.config.js
+
+.dockerignore
+Dockerfile
+
+README.md
