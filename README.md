@@ -127,6 +127,44 @@ GET http://localhost:3030/alice/suggest-friends
 
 The `indexes.cypher` file contains a set of Cypher commands that create and populate the Neo4j database with the necessary structure, such as nodes, relationships, and indexes.
 
+### Predefined Users and Their Relationships
+
+The database is initialized with the following predefined users and their **FOLLOWS** relationships:
+
+#### Users:
+1. **Alice**
+- `username`: `alice`
+- `name`: `Alice`
+- `age`: 30
+2. **Bob**
+- `username`: `bob`
+- `name`: `Bob`
+- `age`: 25
+3. **Carol**
+- `username`: `carol`
+- `name`: `Carol`
+- `age`: 27
+4. **Dave**
+- `username`: `dave`
+- `name`: `Dave`
+- `age`: 22
+5. **Eve**
+- `username`: `eve`
+- `name`: `Eve`
+- `age`: 35
+
+#### Follows Relationships:
+- **Alice** follows **Bob**.
+- **Alice** follows **Carol**.
+- **Bob** follows **Carol**.
+- **Bob** follows **Eve**.
+- **Carol** follows **Dave**.
+- **Carol** follows **Alice**.
+- **Dave** follows **Eve**.
+
+
+![img.png](readme-images/img-2.png)
+
 ### Database Queries
 
 All the queries to the Neo4j database are managed in the `repositories/users.js` file. This file contains the logic for interacting with the database, including operations such as finding users, retrieving followers, suggesting friends, and finding the shortest path between users.
@@ -135,3 +173,20 @@ All the queries to the Neo4j database are managed in the `repositories/users.js`
 - Each function in `users.js` handles specific queries and returns the necessary data to the Express controllers, which then send the response back to the client.
 
 By organizing database interactions in this file, the project maintains a clear separation of concerns, making it easier to manage and scale.
+
+
+### Accessing the Neo4j Browser
+
+Neo4j provides a built-in web interface called **Neo4j Browser**, which is available at port `7474`. This tool allows you to directly interact with the Neo4j database using Cypher queries.
+
+To access the Neo4j Browser, open your web browser and go to:
+
+[Neo4j Browser](http://localhost:7474)
+ (http://localhost:7474)
+
+From here, you can:
+- Run custom Cypher queries to explore the database.
+- Visualize the graph structure of the data.
+
+This is a useful tool for directly interacting with and managing the Neo4j database.
+
