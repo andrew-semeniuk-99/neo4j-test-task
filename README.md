@@ -23,17 +23,13 @@ Before you begin, make sure you have these installed:
    git clone https://github.com/andrew-semeniuk-99/neo4j-test-task.git
    cd neo4j-test-task
    ```
-   <br/>
 2. **Create a `.env` file  from  `.env.example`**
-<br/>
-<br/>
 3. **Starting the Project**
    Use Docker Compose to build and start the services:
 
    ```bash
    docker-compose up --build -d
-    ```
-
+   ```
 
 ### Using Endpoints
 
